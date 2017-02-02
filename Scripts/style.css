@@ -1,0 +1,52 @@
+/*table*/
+#placeholder {
+    padding-right: 15px;
+}
+table {
+    margin-top: 50px;
+}
+
+#sidebar {
+    float: right;
+    width: 250;
+    padding: 25px;
+}
+
+/*Inputs*/
+#command_line {
+    border-top: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: ridge;
+    size: 50px;
+    color: black;
+    height: 30px;
+}
+
+#song-searched {
+    margin-right: 280px;
+    width: 850px;
+    padding: 10px;
+    border: 5px solid gray;
+    height: 160px;
+    align: center;
+}
+
+#footer{
+	bottom:0;
+	color: #696969;
+	position: fixed;
+	margin: 20px 10px;
+    clear: both;
+}
+
+/*table*/
+td,th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 2px;
+}
+.Title {
+    display: none;
+}
+
