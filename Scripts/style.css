@@ -6,11 +6,11 @@ table {
     margin-top: 50px;
 }
 
-#sidebar {
+/*#sidebar {
     float: right;
     width: 250;
     padding: 25px;
-}
+}*/
 
 /*Inputs*/
 #command_line {
@@ -32,19 +32,11 @@ table {
     align: center;
 }
 
-#footer{
-	bottom:0;
-	color: #696969;
-	position: fixed;
-	margin: 20px 10px;
-    clear: both;
-}
-
 /*table*/
 td,th{
-    border: 1px solid #dddddd;
+    border: 3px solid #dddddd;
     text-align: left;
-    padding: 2px;
+    padding: 4px;
 }
 .Title {
     display: none;

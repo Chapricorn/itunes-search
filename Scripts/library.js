@@ -2,8 +2,8 @@
 var timer;
 
 $(function() {
-    $("#searchButton").on("click", function() {
-    var searchTerm = $("#searchField").val();
+    $("#command_line").on("click", function() {
+    var searchTerm = $("#command_line").val();
 		var url = 'http://itunes.apple.com/search?' + parameters;
 		$.ajax({
 		url: url,
