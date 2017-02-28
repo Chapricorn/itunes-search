@@ -104,6 +104,12 @@ function itunesSearch(arg){
 		};
 
 $("#placeholder").append(table);
+$('#placeholder').easyPaginate({
+     paginateElement: 'tr',
+     elementsPerPage: 6,
+     effect: 'default'
+ });
+
 
 $('.Title').fadeIn(1000);
 

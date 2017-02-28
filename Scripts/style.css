@@ -42,3 +42,19 @@ td,th{
     display: none;
 }
 
+/*Pagination*/
+.easyPaginateNav a {
+    position: relative;
+    float: left;
+    padding: 8px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #222222;
+    border: 1px solid #282828;
+    margin-left: -1px;
+    }
+   .easyPaginateNav a.current {
+     font-weight:bold;
+     text-decoration:underline;
+   }
