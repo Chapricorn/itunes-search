@@ -31,6 +31,35 @@ $.fn.easyPaginate = function (options) {
         var getPages = function() {
             return Math.ceil(plugin.settings.objElements.length / plugin.settings.elementsPerPage);
         };
+        var displayPage = function(page, forceEffect) {
+            if(plugin.settings.currentPage != page) {
+                plugin.settings.currentPage = parseInt(page);
+                offsetStart = (page - 1) * plugin.settings.elementsPerPage;
+                offsetEnd = page * plugin.settings.elementsPerPage;
+                if(typeof(forceEffect) != 'undefined') {
+                    eval("transition_"+forceEffect+"("+offsetStart+", "+offsetEnd+")");
+                }else {
+                    eval("transition_"+plugin.settings.effect+"("+offsetStart+", "+offsetEnd+")");
+                }
+
+                plugin.nav.find('.current').removeClass('current');
+                plugin.nav.find('a.page:eq('+(page - 1)+')').addClass('current');
+
+                switch(plugin.settings.currentPage) {
+                    case 1:
+                        $('.paginateNav a', plugin).removeClass('disabled');
+                        $('.paginateNav a.first, .paginateNav a.prev', plugin).addClass('disabled');
+                        break;
+                    case plugin.settings.pages:
+                        $('.paginateNav a', plugin).removeClass('disabled');
+                        $('.paginateNav a.last, .paginateNav a.next', plugin).addClass('disabled');
+                        break;
+                    default:
+                        $('.paginateNav a', plugin).removeClass('disabled');
+                        break;
+                }
+            }
+        };
 
         var displayNav = function() {
             htmlNav = '<div class="paginateNav">';
@@ -80,35 +109,7 @@ $.fn.easyPaginate = function (options) {
             });
         };
 
-        var displayPage = function(page, forceEffect) {
-            if(plugin.settings.currentPage != page) {
-                plugin.settings.currentPage = parseInt(page);
-                offsetStart = (page - 1) * plugin.settings.elementsPerPage;
-                offsetEnd = page * plugin.settings.elementsPerPage;
-                if(typeof(forceEffect) != 'undefined') {
-                    eval("transition_"+forceEffect+"("+offsetStart+", "+offsetEnd+")");
-                }else {
-                    eval("transition_"+plugin.settings.effect+"("+offsetStart+", "+offsetEnd+")");
-                }
-
-                plugin.nav.find('.current').removeClass('current');
-                plugin.nav.find('a.page:eq('+(page - 1)+')').addClass('current');
-
-                switch(plugin.settings.currentPage) {
-                    case 1:
-                        $('.paginateNav a', plugin).removeClass('disabled');
-                        $('.paginateNav a.first, .paginateNav a.prev', plugin).addClass('disabled');
-                        break;
-                    case plugin.settings.pages:
-                        $('.paginateNav a', plugin).removeClass('disabled');
-                        $('.paginateNav a.last, .paginateNav a.next', plugin).addClass('disabled');
-                        break;
-                    default:
-                        $('.paginateNav a', plugin).removeClass('disabled');
-                        break;
-                }
-            }
-        };
+        
 
         var transition_default = function(offsetStart, offsetEnd) {
             plugin.currentElements.hide();
